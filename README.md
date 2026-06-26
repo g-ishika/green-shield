@@ -78,7 +78,7 @@ Illegal deforestation and poaching are major environmental threats. Traditional 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Core ML
 | Tool | Purpose |
@@ -255,7 +255,7 @@ Background       2%      2%      3%    3%    3%      87%
 
 ---
 
-## 📈 Future Improvements
+##  Future Improvements
 
 - [ ] **Federated Learning** - Learn from multiple sensors without centralizing data
 - [ ] **Sound Localization** - Triangulate the position of the sound source
