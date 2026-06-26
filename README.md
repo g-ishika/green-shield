@@ -115,7 +115,7 @@ Illegal deforestation and poaching are major environmental threats. Traditional 
 ##  Project Structure
 
 ```
-environmental_monitoring_system/
+green-shield/
 │
 ├── api/                    # FastAPI server
 │   ├── app.py             # Main application
@@ -181,8 +181,8 @@ environmental_monitoring_system/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/g-ishika/environmental-monitoring-system.git
-cd environmental-monitoring-system
+git clone https://github.com/g-ishika/green-shield.git
+cd green-shield
 ```
 
 ### 2. Create Virtual Environment
