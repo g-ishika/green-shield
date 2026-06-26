@@ -13,30 +13,30 @@
 ## 📌 Problem Statement
 
 Illegal deforestation and poaching are major environmental threats. Traditional monitoring methods like satellite imagery are:
-- ❌ Too slow (days/weeks delay)
-- ❌ Too expensive
-- ❌ Cannot detect real-time threats
+-  Too slow (days/weeks delay)
+-  Too expensive
+-  Cannot detect real-time threats
 
 **Our Solution:** Use acoustic sensors to detect environmental threats in **real-time** 🎯
 
 ---
 
-## 🎯 Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🔍 **Deforestation Detection** | Identifies chainsaw sounds in forests |
-| 🔫 **Poaching Detection** | Detects gunshot sounds |
-| 🚗 **Vehicle Detection** | Monitors unauthorized vehicle activity |
-| 🔥 **Fire Detection** | Identifies fire crackling sounds |
-| 🐾 **Animal Distress Detection** | Detects animal calls in distress |
-| 📡 **Real-time Monitoring** | Continuous audio stream processing |
-| 📧 **Automated Alerts** | Email/Slack notifications for threats |
-| 🌐 **REST API** | Easy integration with other systems |
+|  **Deforestation Detection** | Identifies chainsaw sounds in forests |
+|  **Poaching Detection** | Detects gunshot sounds |
+|  **Vehicle Detection** | Monitors unauthorized vehicle activity |
+|  **Fire Detection** | Identifies fire crackling sounds |
+|  **Animal Distress Detection** | Detects animal calls in distress |
+|  **Real-time Monitoring** | Continuous audio stream processing |
+|  **Automated Alerts** | Email/Slack notifications for threats |
+|  **REST API** | Easy integration with other systems |
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -112,7 +112,7 @@ Illegal deforestation and poaching are major environmental threats. Traditional 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 environmental_monitoring_system/
@@ -176,7 +176,7 @@ environmental_monitoring_system/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 
@@ -228,7 +228,7 @@ Open browser: `http://127.0.0.1:8000/docs`
 
 ---
 
-## 📊 Model Performance
+##  Model Performance
 
 | Metric | Score |
 |--------|-------|
@@ -266,7 +266,7 @@ Background       2%      2%      3%    3%    3%      87%
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -276,13 +276,13 @@ Background       2%      2%      3%    3%    3%      87%
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **UrbanSound8K** - Urban sound dataset
 - **ESC-50** - Environmental sound classification dataset
@@ -291,7 +291,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📧 Contact
+##  Contact
 
 **Author:** [ISHIKA GUPTA]
 
@@ -300,13 +300,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## ⭐ Show Your Support
+##  Show Your Support
 
 If you found this project helpful, please give it a ⭐ on GitHub!
 
 ---
 
-**Built with ❤️ for Environmental Conservation**
+**Built with love for Environmental Conservation**
 
 
 
