@@ -1,4 +1,4 @@
-"""Training pipeline for environmental monitoring models"""
+
 
 import torch
 import yaml
@@ -17,7 +17,7 @@ logger = setup_logger(__name__)
 
 
 class TrainingPipeline:
-    """Complete training pipeline for environmental audio classification"""
+    
     
     def __init__(self, config_path: str = "config/config.yaml"):
         with open(config_path, 'r') as f:
@@ -32,12 +32,15 @@ class TrainingPipeline:
         self.model = None
         self.trainer = None
     
-    def prepare_data(self, data_dir: str = "data/processed") -> Tuple:
+    def prepare_data(self, 
+                     data_dir: str = "audio_data/processed",  # ← CHANGED
+                     raw_dir: str = "audio_data/raw"):  # ← ADDED
         """Prepare data loaders"""
         logger.info("Preparing data...")
         
         self.train_loader, self.val_loader, self.test_loader = create_dataloaders(
             data_dir=data_dir,
+            raw_dir=raw_dir,  # ← ADDED
             batch_size=self.config['data']['batch_size'],
             train_split=self.config['data']['train_split'],
             val_split=self.config['data']['val_split'],
@@ -62,7 +65,7 @@ class TrainingPipeline:
             dropout_rate=self.config['model']['dropout_rate']
         )
         
-        # Print model summary
+        
         total_params = sum(p.numel() for p in self.model.parameters())
         trainable_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
         
@@ -72,16 +75,16 @@ class TrainingPipeline:
         return self.model
     
     def train(self) -> Dict:
-        """Run training"""
-        # Prepare data if not already done
+        
+        
         if self.train_loader is None:
             self.prepare_data()
         
-        # Create model if not already done
+        
         if self.model is None:
             self.create_model()
         
-        # Create trainer
+
         self.trainer = ModelTrainer(
             model=self.model,
             config=self.config['training'],
@@ -89,15 +92,15 @@ class TrainingPipeline:
             use_wandb=self.config.get('use_wandb', False)
         )
         
-        # Train
+        
         logger.info("Starting training...")
         history = self.trainer.train(self.train_loader, self.val_loader)
         
-        # Evaluate
+        
         logger.info("Evaluating on test set...")
         metrics = self.trainer.evaluate(self.test_loader)
         
-        # Save results
+        
         self._save_results(history, metrics)
         
         return {
@@ -112,11 +115,11 @@ class TrainingPipeline:
         
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         
-        # Save metrics
+    
         with open(output_dir / f'metrics_{timestamp}.json', 'w') as f:
             json.dump(metrics, f, indent=2)
         
-        # Save config
+        
         with open(output_dir / f'config_{timestamp}.yaml', 'w') as f:
             yaml.dump(self.config, f)
         
