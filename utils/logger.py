@@ -1,4 +1,4 @@
-"""Logging utilities for environmental monitoring"""
+
 
 import logging
 import sys
@@ -13,14 +13,14 @@ def setup_logger(name: str = "environmental_monitor",
                  log_file: str = None) -> logging.Logger:
     """Setup logger with file and console handlers"""
     
-    # Create logger
+    
     logger = logging.getLogger(name)
     logger.setLevel(getattr(logging, log_level.upper()))
     
-    # Remove existing handlers
+    
     logger.handlers.clear()
     
-    # Create formatters
+
     console_formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
@@ -31,13 +31,13 @@ def setup_logger(name: str = "environmental_monitor",
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     
-    # Console handler
+
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(console_formatter)
     logger.addHandler(console_handler)
     
-    # File handler
+    
     if log_file is None:
         log_dir = Path("logs")
         log_dir.mkdir(exist_ok=True)
@@ -56,7 +56,7 @@ def setup_logger(name: str = "environmental_monitor",
 
 
 class JSONFormatter(logging.Formatter):
-    """JSON formatter for structured logging"""
+    
     
     def format(self, record):
         log_entry = {
@@ -108,10 +108,10 @@ class Logger:
         self.logger.exception(message, extra={'extra': kwargs})
 
 
-# Default logger instance
+
 default_logger = Logger()
 
-# Convenience functions
+
 def get_logger(name: str = "environmental_monitor") -> logging.Logger:
     """Get logger instance"""
     return setup_logger(name)
