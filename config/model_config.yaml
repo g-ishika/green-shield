@@ -1,4 +1,4 @@
-# Model configuration for environmental monitoring
+# Model configuration
 
 model:
   architecture: "resnet50"  # Options: resnet18, resnet50, custom_cnn, attention_cnn
@@ -25,8 +25,8 @@ training:
   weight_decay: 0.0001
   label_smoothing: 0.1
   
-  # Loss function
-  loss: "cross_entropy"  # Options: cross_entropy, focal, label_smoothing
+  
+  loss: "cross_entropy"  
   
   # Callbacks
   callbacks:

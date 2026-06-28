@@ -4,9 +4,10 @@ project:
   description: "End-to-end PyTorch pipeline for environmental monitoring"
 
 data:
+  data_dir: "audio_data"  
   audio:
     sample_rate: 22050
-    duration: 5.0  # seconds
+    duration: 5.0
     n_mels: 128
     n_fft: 2048
     hop_length: 512
@@ -24,16 +25,16 @@ data:
   num_workers: 4
 
 model:
-  architecture: "resnet50"  # Options: resnet18, resnet50, custom_cnn, attention_cnn
+  architecture: "resnet50"
   num_classes: 6
   pretrained: true
   dropout_rate: 0.3
-  attention_type: "se"  # Options: se, cbam, none
+  attention_type: "se"
 
 training:
   optimizer: "adam"
   learning_rate: 0.001
-  scheduler: "cosine"  # Options: step, cosine, plateau
+  scheduler: "cosine"
   epochs: 100
   early_stopping_patience: 10
   use_mixed_precision: true
@@ -43,10 +44,10 @@ training:
 
 inference:
   threshold: 0.7
-  window_size: 5.0  # seconds
-  overlap: 0.5  # 50% overlap for real-time
-  alert_cooldown: 60  # seconds between alerts
-  device: "cuda"  # Options: cuda, cpu
+  window_size: 5.0
+  overlap: 0.5
+  alert_cooldown: 60
+  device: "cuda"
 
 alerting:
   channels:
@@ -56,10 +57,9 @@ alerting:
     - "info"
     - "warning"
     - "critical"
-  reporting_frequency: 3600  # seconds
+  reporting_frequency: 3600
 
 environmental_conditions:
   noise_reduction: true
   adaptive_threshold: true
   weather_compensation: false
-  
