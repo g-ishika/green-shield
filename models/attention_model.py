@@ -1,4 +1,4 @@
-"""Attention-based models for environmental audio classification"""
+
 
 import torch
 import torch.nn as nn
@@ -7,7 +7,7 @@ from typing import Optional, Tuple
 
 
 class ChannelAttention(nn.Module):
-    """Channel Attention Module"""
+
     
     def __init__(self, channels: int, reduction: int = 16):
         super().__init__()
@@ -45,7 +45,7 @@ class SpatialAttention(nn.Module):
 
 
 class CBAM(nn.Module):
-    """Convolutional Block Attention Module"""
+
     
     def __init__(self, channels: int, reduction: int = 16, kernel_size: int = 7):
         super().__init__()
@@ -79,7 +79,7 @@ class AttentionBlock(nn.Module):
 
 
 class SEBlock(nn.Module):
-    """Squeeze-and-Excitation Block"""
+    
     
     def __init__(self, channels: int, reduction: int = 16):
         super().__init__()
@@ -99,7 +99,7 @@ class SEBlock(nn.Module):
 
 
 class ECA(nn.Module):
-    """Efficient Channel Attention"""
+    
     
     def __init__(self, channels: int, gamma: int = 2, b: int = 1):
         super().__init__()
@@ -118,7 +118,7 @@ class ECA(nn.Module):
 
 
 class SelfAttention(nn.Module):
-    """Self-Attention module for feature refinement"""
+    
     
     def __init__(self, in_channels: int, out_channels: Optional[int] = None):
         super().__init__()
@@ -134,16 +134,16 @@ class SelfAttention(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         b, c, h, w = x.size()
         
-        # Query, Key, Value
+        
         q = self.query(x).view(b, -1, h * w).permute(0, 2, 1)
         k = self.key(x).view(b, -1, h * w)
         v = self.value(x).view(b, -1, h * w)
         
-        # Attention scores
+        
         attn = torch.bmm(q, k) / (c ** 0.5)
         attn = F.softmax(attn, dim=-1)
         
-        # Apply attention
+    
         out = torch.bmm(v, attn.permute(0, 2, 1))
         out = out.view(b, c, h, w)
         
@@ -151,7 +151,7 @@ class SelfAttention(nn.Module):
 
 
 class AttentionResNetBlock(nn.Module):
-    """ResNet block with attention mechanism"""
+
     
     def __init__(
         self,
